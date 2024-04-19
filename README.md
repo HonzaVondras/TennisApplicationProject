@@ -116,6 +116,19 @@ GET
 return all reservations that are made with {phoneNumber} and aren't already past their due.
 
 ///////////////////////////////////////////////////////////////
+Example of Court in JSON:
+
+{ "name": "Court A", "surface": "CLAY", "deleted": "false"} (id is generated automaticaly)
+
+Example of Reservation in JSON:
+
+{ "courtId": 1, "phoneNumber": 123456789, "fullName": "Karel Novák", "startTime": "2024-04-16T14:30:00", "endTime": "2024-04-16T16:00:00", "fourPlayers": "false", "deleted": "false" }
+
+///////////////////////////////////////////////////////////////
+
+How to install and run application:
+
+Just download the tennis folder and then run the TennisApplication Java file with device that has java 17 on it
 
 
 
