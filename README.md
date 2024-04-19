@@ -1,4 +1,4 @@
-# Inqool-project
+# TennisApplicationPorject
 This is Java server Application for managing tennis court reservations made with Spring Boot.
 
 This apllication offers creating Courts, Reservations and managing Users and saving them to in-memory H2 database. Communication with the application is via REST endpoints as described bellow.
