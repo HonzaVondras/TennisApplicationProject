@@ -18,6 +18,7 @@ POST
 Saves Court to the database
 
 PUT
+
 /api/updateCourt/{id} @RequestBody Court
 Updates court in database with {id} to match information with Court
 
