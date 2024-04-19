@@ -1,7 +1,7 @@
 # Inqool-project
 This is Java server Application for managing tennis court reservations.
 
-It offers creating Courts, Reservations and managing Users and saving them to in-memory H2 database. Communication with the application is via REST endpoints described bellow.
+This apllication offers creating Courts, Reservations and managing Users and saving them to in-memory H2 database. Communication with the application is via REST endpoints as described bellow.
 
 Court Managmnet
 
