@@ -116,6 +116,7 @@ GET
 return all reservations that are made with {phoneNumber} and aren't already past their due.
 
 ///////////////////////////////////////////////////////////////
+
 Example of Court in JSON:
 
 { "name": "Court A", "surface": "CLAY", "deleted": "false"} (id is generated automaticaly)
