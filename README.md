@@ -13,32 +13,33 @@ Returns all courts in the database
 
 GET
 /api/getCourtById/{id}
-Returns court with {id}
 
+Returns court with {id}
+///////////////////////////////////////////////////////////////
 
 POST
 /api/addCourt @RequestBody Court
 
 Saves Court to the database
-
+///////////////////////////////////////////////////////////////
 
 PUT
 /api/updateCourt/{id} @RequestBody Court
 
 Updates court in database with {id} to match information with Court
-
+///////////////////////////////////////////////////////////////
 
 DELETE
 /api/deleteCourtById/{id}
 
 Changes the column deleted of court with {id} to true, effectively removing it from all other queries except getCourtById/{id}
-
+///////////////////////////////////////////////////////////////
 
 DELETE
 /api/deleteAllCourts
 
 Does the same as deleteCourtById for all Courts
-
+///////////////////////////////////////////////////////////////
 
 
 Reservation and User Managment
@@ -48,7 +49,7 @@ GET
 /api/getAllReservations
 
 Returns all courts in the database
-
+///////////////////////////////////////////////////////////////
 
 GET
 /api/getReservationById/{id}
