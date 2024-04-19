@@ -4,10 +4,17 @@ import lombok.*;
 
 import jakarta.persistence.*;
 
+/**
+ * Entity class to store users in H2 database. Automaticaly creates table in the database
+ *
+ * @author Jan Vondrasek
+*/
+
 @Entity
 @Table(name="Users")
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
 @Setter
 @Getter
 @ToString
@@ -25,10 +32,5 @@ public class User {
 
     @Column(name = "DELETED")
     private Boolean deleted;
-
-    public User(String fullName, String phoneNumber) {
-        this.fullName = fullName;
-        this.phoneNumber = phoneNumber;
-    }
 
 }

@@ -6,10 +6,17 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
+/**
+ * Entity class to store reservations in H2 database. Automaticaly creates table in the database
+ *
+ * @author Jan Vondrasek
+*/
+
 @Entity
 @Table(name="Reservations")
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
 @Setter
 @Getter
 @ToString

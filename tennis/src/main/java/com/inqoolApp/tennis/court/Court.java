@@ -4,20 +4,21 @@ import lombok.*;
 
 import jakarta.persistence.*;
 
+/**
+ * Entity class to store courts in H2 database. Automaticaly creates table in the database
+ *
+ * @author Jan Vondrasek
+*/
+
 @Entity
 @Table(name="Courts")
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
 @Setter
 @Getter
 @ToString
 public class Court {
-
-    public Court(String name, SurfaceType surfaceType){
-        this.name = name;
-        this.surface = surfaceType;
-        this.deleted = false;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

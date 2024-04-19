@@ -9,21 +9,51 @@ import com.inqoolApp.tennis.GeneralRepository;
 
 import jakarta.transaction.Transactional;
 
+import lombok.*;
+
 import java.util.List;
 import java.util.ArrayList;
 
+
+/**
+ * Class that handles all work with the Courts table in the database
+ *
+ * @author Jan Vondrasek
+*/
+
 @RestController
 @RequestMapping("/api")
+@Getter
+@Setter
 public class CourtController {
     
     @Autowired
     private final GeneralRepository<Court> courtRepository;
 
+
+    /**
+    * Constructs a new CourtController instance.
+    *
+    * This constructor initializes a new CourtController object with the provided
+    * Court repository, which offers operations on EntityManager or raw SQL commands
+    * on the database.
+    *
+    * @param courtRepository the repository providing operations for managing Court entities
+    */
     @Autowired
     public CourtController(GeneralRepository<Court> courtRepository) {
         this.courtRepository = courtRepository;
     }
 
+
+    /**
+    * Retrieves all courts.
+    *
+    * This method retrieves all courts available in the system.
+    *
+    * @return ResponseEntity containing a list of all courts, or ResponseEntity with status
+    *         NO_CONTENT if no courts are found, or INTERNAL_SERVER_ERROR if an exception occurs
+    */
     @GetMapping("/getAllCourts")
     public ResponseEntity<List<Court>> getAllCourts() {
         try {
@@ -41,6 +71,15 @@ public class CourtController {
         }
     }
 
+    /**
+    * Retrieves a court by its unique identifier.
+    *
+    * This method retrieves a court from the database based on the provided ID.
+    *
+    * @param id the unique identifier of the court to retrieve
+    * @return ResponseEntity containing the court with the specified ID, or ResponseEntity
+    *         with status BAD_REQUEST if no court is found, or INTERNAL_SERVER_ERROR if an exception occurs
+    */
     @GetMapping("/getCourtById/{id}")
     public ResponseEntity<Court> getCourtById(@PathVariable Long id) {
         try {
@@ -58,6 +97,16 @@ public class CourtController {
         }
     }
 
+
+    /**
+    * Adds a new court to the database.
+    *
+    * This method saves the provided court object to the database.
+    *
+    * @param court the court object to add to the database
+    * @return ResponseEntity containing the added court object with its database-assigned identifier,
+    *         or ResponseEntity with status INTERNAL_SERVER_ERROR if an exception occurs
+    */
     @Transactional
     @PostMapping("/addCourt")
     public ResponseEntity<Court> addCourt(@RequestBody Court court) {
@@ -73,6 +122,19 @@ public class CourtController {
         
     }
 
+
+    /**
+    * Updates an existing court in the database.
+    *
+    * This method updates the details of the court with the specified ID in the database
+    * using the provided court object.
+    *
+    * @param id the unique identifier of the court to update
+    * @param court the court object containing the updated details
+    * @return ResponseEntity containing the updated court object with its database-assigned identifier,
+    *         or ResponseEntity with status BAD_REQUEST if the court with the specified ID is not found,
+    *         or ResponseEntity with status INTERNAL_SERVER_ERROR if an exception occurs
+    */
     @Transactional
     @PutMapping("/updateCourt/{id}")
     public ResponseEntity<Court> updateCourt(@PathVariable Long id, @RequestBody Court court) {
@@ -98,6 +160,17 @@ public class CourtController {
         
     }
 
+    /**
+    * Marks a court as deleted in the database.
+    *
+    * This method marks the court with the specified ID as deleted in the database
+    * by setting its 'deleted' flag to true.
+    *
+    * @param id the unique identifier of the court to mark as deleted
+    * @return ResponseEntity with status OK if the court is successfully marked as deleted,
+    *         or ResponseEntity with status BAD_REQUEST if the court with the specified ID is not found,
+    *         or ResponseEntity with status INTERNAL_SERVER_ERROR if an exception occurs during the operation
+    */
     @Transactional
     @DeleteMapping("/deleteCourtById/{id}")
     public ResponseEntity<HttpStatus> deleteCourt(@PathVariable Long id) {
@@ -124,6 +197,16 @@ public class CourtController {
         
     }
 
+    /**
+    * Deletes all courts from the database.
+    *
+    * This method deletes all courts from the database by iterating over each court
+    * and invoking the deleteCourt method to mark them as deleted.
+    *
+    * @return ResponseEntity with status OK if all courts are successfully deleted,
+    *         or ResponseEntity with status NO_CONTENT if there are no courts to delete,
+    *         or ResponseEntity with status INTERNAL_SERVER_ERROR if an exception occurs during the operation
+    */
     @Transactional
     @DeleteMapping("/deleteAllCourts")
     public ResponseEntity<HttpStatus> deleteAllCourts() {
