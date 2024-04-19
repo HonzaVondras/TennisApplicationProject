@@ -75,7 +75,6 @@ Checks if it collides with another reservation on the same court. If no creates 
 ///////////////////////////////////////////////////////////////
 
 POST
-
 /api/updateReservation/{id} @RequestBody Reservation
 
 Updates reservation in database with {id} to match information with Reservation
